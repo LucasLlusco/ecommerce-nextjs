@@ -1,7 +1,11 @@
 .NewAccountForm
   display: block
   margin: 5rem auto 0
-  max-width: 30rem
+  max-width: fit-content
+  @include tablet
+    margin: none
+    max-width: none
+    padding: 10px
   &__title
     font-size: 2rem
     font-weight: 700
@@ -11,7 +15,7 @@
     -webkit-text-fill-color: transparent
   &__form
     display: grid
-    grid-template-areas: "a b" "c c" "d d" "e e" "f f" "g g"
+    grid-template-columns: 1fr 1fr
     column-gap: 1rem
     row-gap: 2rem
     & > input[type="text"], input[type="password"]
@@ -22,23 +26,18 @@
       border: none
       border-bottom: 1px solid $border-color
       font-size: 1.25rem
+      grid-column: span 2
       &:focus
         outline: none
         border-bottom: 1px solid $main-contrast
-    & > input[name="first_name"]
-      grid-area: a
-    & > input[name="last_name"]
-      grid-area: b
-    & > input[name="email"]
-      grid-area: c
-    & > input[name="phone"]
-      grid-area: d
-    & > input[name="password"]
-      grid-area: e
-    & > input[name="password_confirmation"]
-      grid-area: f
+      &:disabled
+        cursor: not-allowed
+    & > input[name="firstName"], input[name="lastName"]
+      grid-column: span 1 
+      @include tablet 
+        grid-column: span 2
     & > input[name="submit"]
-      grid-area: g
+      grid-column: span 2
       border: 1px solid $main-contrast
       background: transparent
       color: $text-color
@@ -47,7 +46,19 @@
       text-transform: uppercase
       cursor: pointer
       border-radius: 1.5rem
+      &:disabled
+        cursor: not-allowed
+  &__link
+    text-align: center
+    margin-top: 20px
+    & > a
+      margin-left: 5px
+      background-image: linear-gradient(270deg, #4f56ff, #ff4980)
+      background-clip: text
+      -webkit-text-fill-color: transparent
   &__error
     color: red
     font-weight: 300
     margin-top: 1rem
+
+    

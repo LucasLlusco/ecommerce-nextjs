@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { handleCreateUser } from "app/actions";
 import styles from "./NewAccountForm.module.sass";
+import Link from "next/link";
 
 const NewAccountForm = () => {
   const [errors, setErrors] = useState<string[]>([]);
@@ -10,6 +11,7 @@ const NewAccountForm = () => {
   const handleSubmit = async (event: {target: any, preventDefault: () => void}) => {
     event.preventDefault();
     setErrors([""]); 
+    setLoading(true);
     try {
       const formData = new FormData(event.target);
       const {firstName, lastName, email, phone, password, password_confirmation} = Object.fromEntries(formData);
@@ -37,6 +39,8 @@ const NewAccountForm = () => {
       } else { 
         setErrors(["Lo sentimos hubo un error, intenta de nuevo."]);
       }
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -59,6 +63,7 @@ const NewAccountForm = () => {
           })}
         </div>
       }
+      <p className={styles.NewAccountForm__link}>Already a member?<Link href={"/login"}>Login</Link></p>
     </div>  
   )
 }

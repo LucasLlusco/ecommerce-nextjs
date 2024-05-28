@@ -2,6 +2,7 @@
 import { handleLogin } from "app/actions";
 import { useState } from "react";
 import styles from "./LoginForm.module.sass";
+import Link from "next/link";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState<string[]>([]);
@@ -10,6 +11,7 @@ const LoginForm = () => {
   const handleSubmit = async (event: {target: any, preventDefault: () => void}) => {
     event.preventDefault();
     setErrors([""]); 
+    setLoading(true);
     try {
       const formData = new FormData(event.target);
       const {email, password} = Object.fromEntries(formData);
@@ -31,17 +33,19 @@ const LoginForm = () => {
         setErrors(customerErrorMsgs);
       } else { 
         setErrors(["Lo sentimos hubo un error, intenta de nuevo."]);
-      }
+      } 
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <div className={styles.NewAccountForm}  >
+    <div className={styles.NewAccountForm}>
       <h1 className={styles.NewAccountForm__title}>Login</h1>
       <form onSubmit={handleSubmit} className={styles.NewAccountForm__form}>
         <input type="text" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" disabled={loading} />
         <input type="password" name="password" placeholder="password" disabled={loading}/>
-        <input type="submit" name="submit" value="Login"  />
+        <input type="submit" name="submit" value="Login" disabled={loading}  />
       </form>
       {errors.length > 0 && 
         <div>
@@ -50,6 +54,7 @@ const LoginForm = () => {
           })}
         </div>
       }
+      <p className={styles.NewAccountForm__link}>Don&apos;t have an account yet?<Link href="/signup">Sign up</Link></p>
     </div>
   )
 }
