@@ -20,6 +20,7 @@ const ProductViewItemsOrder = ({maxQuantity, product} : ProductViewItemsOrderPro
       price: product.price,
       quantity: counter, 
       id: product.id,
+      handle: product.handle,
       image: product.image,
       merchandiseId: product.gql_id
     });

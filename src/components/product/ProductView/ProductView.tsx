@@ -13,12 +13,11 @@ const ProductView = ({product}: ProductViewProps) => {
     <main className={styles.ProductView}>
       <section className={styles.ProductView__images}>
         <Image
-          loading="eager"
           src={product.image}
-          width={500}
-          height={500}
-          quality={80}
           alt={product.title}
+          quality={80}
+          loading="eager"
+          fill
         />
       </section>
       <section className={styles.ProductView__info}>
@@ -32,7 +31,8 @@ const ProductView = ({product}: ProductViewProps) => {
         </span>
         <ProductViewItemsOrder maxQuantity={product.quantity} product={product} />
       </section>
-    </main>  )
+    </main>
+  )
 }
 
 export default ProductView

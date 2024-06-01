@@ -18,7 +18,15 @@ const Header = async () => {
         </ul>
       </nav>
       <div className={styles.Header__user}>
-        {customer?.firstName ? (<Link href="/my-account">Hola! {customer.firstName}</Link>) : (<Link href="/login">Login</Link>)}
+        {customer?.firstName ? (
+          <Link href="/my-account">Hola! {customer.firstName}</Link>
+          ) : (
+            <>
+              <Link href="/signup">Sign up</Link>
+              <Link href="/login">Login</Link>
+            </>          
+          ) 
+        }
         <NoSSRShoppingCart />
       </div>
     </header>

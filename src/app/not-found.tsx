@@ -16,7 +16,7 @@ const NotFound = () => {
       <h2 className={styles.NotFound__subtitle}>
         ¡Uy, parece que el enlace se escondió!
       </h2>
-      <p className={styles.NotFound__description}>Pero nuestra tienda está abierta las 24/7</p>
+      <p className={styles.NotFound__message}>Pero nuestra tienda está abierta las 24/7</p>
       <Link className={styles.NotFound__link} href="/store">
         ¡Vamos de compras!
       </Link>

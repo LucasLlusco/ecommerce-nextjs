@@ -2,19 +2,27 @@
   & > h3
     text-align: center
     font-size: 3rem
+    margin: 0px 0px 18px 0px
+    @include tablet 
+      font-size: 1.5rem
   &__grid
     display: grid
     width: 100%
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: 1fr 1fr
     grid-template-rows: 400px 400px
+    @include tablet 
+      grid-template-rows: 350px 350px
+    @include mobile 
+      grid-template-rows: 200px 200px
     & > article
       position: relative
       z-index: 1
-      min-height: 400px
+      height: 100%
       & > img
-        height: 400px
         opacity: 0.4
         object-fit: cover
+        @include tablet 
+          object-fit: fill
       & > p
         position: absolute
         top: 0
@@ -24,3 +32,5 @@
         font-weight: 700
         max-width: 300px
         text-align: right
+        @include mobile
+          font-size: 1.125rem

@@ -3,18 +3,26 @@
   flex-direction: column
   align-items: center
   justify-content: center
+  padding: 2rem 10px
+  gap: 5px
   &__title
-    font-size: 10rem
+    font-size: 5rem
     font-weight: 900
     margin: 0
     background-image: linear-gradient(270deg, #4f56ff, #ff4980)
     background-clip: text
     -webkit-text-fill-color: transparent
+    @include tablet
+      font-size: 4rem
   &__subtitle
     font-size: 2rem
+    @include tablet
+      font-size: 1.5rem
     margin: 0
+    text-align: center
   &__message
-    font-size: 1.5rem
+    font-size: 1rem
+    text-align: center
   &__link
     display: block
     width: fit-content

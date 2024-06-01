@@ -1,18 +1,21 @@
 .NewAccountForm
   display: block
-  margin: 5rem auto 0
+  margin: 0 auto
+  padding: 2rem 10px
   max-width: fit-content
   @include tablet
-    margin: none
     max-width: none
-    padding: 10px
   &__title
-    font-size: 2rem
+    font-size: 2.5rem
     font-weight: 700
     margin-bottom: 3rem
     background-image: linear-gradient(270deg, #4f56ff, #ff4980)
     background-clip: text
     -webkit-text-fill-color: transparent
+    margin: 0px 0px 32px 0px
+    text-align: center
+    @include tablet
+      font-size: 2rem
   &__form
     display: grid
     grid-template-columns: 1fr 1fr
@@ -27,6 +30,8 @@
       border-bottom: 1px solid $border-color
       font-size: 1.25rem
       grid-column: span 2
+      @include mobile 
+        font-size: 1rem
       &:focus
         outline: none
         border-bottom: 1px solid $main-contrast
@@ -46,6 +51,8 @@
       text-transform: uppercase
       cursor: pointer
       border-radius: 1.5rem
+      @include mobile 
+        padding: 0.75rem
       &:disabled
         cursor: not-allowed
   &__link

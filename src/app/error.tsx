@@ -8,8 +8,8 @@ const GlobalError = ({reset} : ErrorPageProps) => {
       <h1 className={styles.Error__title}>Ha ocurrido un error</h1>
       <Image
         src='/images/error.png'
-        width={500}
-        height={500}
+        width={300}
+        height={300}
         alt='Error'
       />
       <p className={styles.Error__message}>Al parecer ha ocurrido un error, pero no te sientas mal</p>

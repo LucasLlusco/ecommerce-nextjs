@@ -20,6 +20,25 @@ const Chat = ({agent}: chatProps) => {
   return (
     <main className={styles.Chat} >
       <h1 className={styles.Chat__title}>Ask anything, buy everything</h1>
+      <section className={styles.Chat__messages}>
+        {messages
+          .filter(m => m.role !== 'system')
+          .map(m => {
+            return (
+              <span 
+                key={m.id} 
+                className={`${styles.Chat__message} ${m.role === "assistant" ? `${styles.Chat__message__assistant}` : `${styles.Chat__message__user}`}`}>
+                <div className={styles.Chat__message__icon}>
+                  {m.role === "assistant" ? "🤖" : "😊"}
+                </div>
+                <div>
+                  {m.content}
+                </div>
+              </span>
+            )
+          }
+        )}
+      </section>
       <form onSubmit={handleSubmit} className={styles.Chat__form}>
         <input
           className={styles.Chat__input}
@@ -33,23 +52,6 @@ const Chat = ({agent}: chatProps) => {
           Send
         </button>
       </form>
-      <section className={styles.Chat__messages}>
-        {messages
-          .filter(m => m.role !== 'system')
-          .map(m => {
-            return (
-              <span key={m.id} className={styles.Chat__message}>
-                <div className={styles.Chat__message__icon}>
-                  {m.role === "assistant" ? "🤖" : "😊"}
-                </div>
-                <div>
-                  {m.content}
-                </div>
-              </span>
-            )
-          }
-        )}
-      </section>
     </main>
   )
 }

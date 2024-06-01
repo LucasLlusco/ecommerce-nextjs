@@ -1,8 +1,12 @@
 .ProductsWrapper
   display: grid
-  grid-template-columns: repeat(auto-fill, 320px)
-  column-gap: 3rem
-  row-gap: 2rem
-  justify-items: center
-  justify-content: center
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  gap: 1.5rem
+  column-gap: 2rem
   margin-top: 3rem
+  @include tablet
+    grid-template-columns: 1fr 1fr 1fr
+    gap: 1rem
+  @include mobile
+    grid-template-columns: 1fr 1fr
+    gap: 0.5rem
