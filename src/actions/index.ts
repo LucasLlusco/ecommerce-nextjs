@@ -84,3 +84,9 @@ export const handleCreateCart = async (items: CartItem[]) => {
   const { cartCreate }:cartCreateType = await graphqlClient.request(createCartMutation, variables)
   return cartCreate?.cart?.checkoutUrl 
 }
+
+export const handleSignout = () => {
+  const cookiesStore = cookies();
+  cookiesStore.delete('accessToken');
+  redirect('/login')
+}

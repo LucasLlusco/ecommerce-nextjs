@@ -1,3 +1,4 @@
+import SignoutForm from 'app/components/my-account/SignoutForm/SignoutForm';
 import { validateAccessToken } from 'app/utils/auth/validateAccessToken';
 import React from 'react'
 
@@ -11,7 +12,8 @@ const MyAccountPage = async () => {
       <h2>Account info</h2>
       <section>
         <p>Nombre: {customer?.firstName}</p>
-        <p>email: {customer?.email}</p>
+        <p>Email: {customer?.email}</p>
+        <SignoutForm />
       </section>
     </div>
   );
