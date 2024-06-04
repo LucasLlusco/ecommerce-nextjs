@@ -16,6 +16,7 @@ const ProductCard = ({product}: ProductCardInterface) => {
           alt={product.title}
           quality={80}
           loading="eager"
+          fill
         />
       </Link>
       <div className={styles.ProductCard__info}>
