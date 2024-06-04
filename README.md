@@ -14,10 +14,11 @@
 
 - Next.js 14
 - Typescript
+- Sass
 - Zustand
 - Shopify 
 - Graphql
-- Sass
+- Google Gemini API
 
 ## Overview
 
