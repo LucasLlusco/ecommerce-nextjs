@@ -6,7 +6,10 @@ export const getCollections = async () => {
     const response = await fetch(shopifyUrls.collections.all, {
       headers: new Headers({
         'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
-      })
+      }),
+      next: {
+        revalidate: 21600 //6h
+      }
     })
     const { smart_collections } = await response.json() 
 
